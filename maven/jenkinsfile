@@ -1,0 +1,24 @@
+pipeline{
+    agent any
+    
+    tools {
+  maven 'maven3'
+}
+
+    stages{
+        stage ("Git checkout"){
+        steps{
+           git 'https://github.com/skwandoodi/Jenkins-Full-Course-on-aws-Linux.git' 
+        }
+        }
+        stage("Maven version Stage"){
+        steps{
+        sh 'mvn -version'
+        }
+        }
+        stage("maven clean stage"){
+        steps{
+        maven('clean', 'Maven/pom.xml')
+        }
+    }
+}
