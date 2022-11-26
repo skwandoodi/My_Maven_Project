@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Build Application'){
             steps{
-                sh 'maven clean package'
+                sh 'mvn -f maven/pom.xml clean package'
             }
             post{
                 success{
