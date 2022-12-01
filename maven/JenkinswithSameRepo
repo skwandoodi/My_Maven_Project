@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    
+    tools {
+  maven 'maven3'
+}
+
+    stages{
+      
+        }
+        stage("Maven version Stage"){
+        steps{
+        sh 'mvn -version'
+        }
+        }
+        stage("maven clean stage"){
+        steps{
+          sh 'mvn clean package'
+        }
+    }
+}
+}
