@@ -1,16 +1,24 @@
 pipeline{
     agent any
+    
+    tools {
+  maven 'maven3'
+}
+
     stages{
-        stage('Build Application'){
-            steps{
-                sh 'mvn -f maven/pom.xml clean package'
-            }
-            post{
-                success{
-                    echo "Now archiving the artifacts......"
-                    archiveArtifactss artifacts: '**/*.jar'
-                }
-            }
+        stage ("Git checkout"){
+        steps{
+           git 'https://github.com/skwandoodi/Jenkins-Full-Course-on-aws-Linux.git' 
+        }
+        }
+        stage("Maven version Stage"){
+        steps{
+        sh 'mvn -version'
+        }
+        }
+        stage("maven clean stage"){
+        steps{
+        maven('clean', 'Maven/pom.xml')
         }
     }
 }
