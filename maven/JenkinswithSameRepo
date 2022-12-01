@@ -17,21 +17,21 @@ pipeline{
         steps{
           sh 'mvn -f maven/pom.xml clean package'
         }
+        }
         stage("maven package"){
         steps{
           sh 'mvn -f maven/pom.xml clean package'
+        }
         }
         stage("maven test"){
         steps{
           sh 'mvn -f maven/pom.xml clean package'
         }
+        }
         stage("maven install"){
         steps{
           sh 'mvn -f maven/pom.xml clean package'
         }
+        }
     }
-}
-}
-} 
-}
 }
