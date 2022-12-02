@@ -34,5 +34,13 @@ pipeline{
           sh 'mvn -f maven/pom.xml clean package'
         }
         }
+        stage("sonajenkins"){
+        steps{
+           withCredentials([string(credentialsId: 'sonar-jenkins', variable: '')]) {
+            sh 'mvn -f Maven/pom.xml clean install package sonar:sonar'
+
+        }
+        }
+        }
     }
 }
