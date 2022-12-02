@@ -42,5 +42,21 @@ pipeline{
         }
         }
         }
+        stage("jfrogjenkins"){
+        steps{
+          rtUpload (
+    serverId: 'jfrog_jenk_artifactory',
+    spec: '''{
+          "files": [
+            {
+              "pattern": "maven/target/*.jar",
+              "target": "libs-snapshot-local/com/devopspract/DevopsMaven/1.0-SNAPSHOT/"
+            }
+         ]
+    }''',
+ 
+)
+        }
+        }
     }
 }
