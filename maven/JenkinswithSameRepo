@@ -58,5 +58,13 @@ pipeline{
 )
         }
         }
+        stage("publish artifactory to jfrog"){
+        steps{
+        rtPublishBuildInfo (
+    serverId: 'jfrog_jenk_artifactory',
+    
+)
+        }
+        }
     }
 }
