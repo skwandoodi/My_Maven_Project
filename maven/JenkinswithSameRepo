@@ -89,13 +89,13 @@ pipeline{
     }
     post{
      failure{
-     echo ' this faild'
+     emailext body: 'Hi this is testing from jenkins notification', subject: 'This is from Jenkins failure job', to: 'meforasong@gmail.com, skwandoodi@live.com'
      }
      success{
-     echo ' this is success'
+     emailext body: 'Hi this is testing from jenkins notification', subject: 'This is from Jenkins success job', to: 'meforasong@gmail.com, skwandoodi@live.com'
      }
      aborted{
-     echo ' this is abort'
+     emailext body: 'Hi this is testing from jenkins notification', subject: 'This is from Jenkins aborted job', to: 'meforasong@gmail.com, skwandoodi@live.com'
      }
     }
 }
