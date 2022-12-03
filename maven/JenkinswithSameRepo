@@ -87,4 +87,15 @@ pipeline{
         }
         }
     }
+    post{
+     failure{
+     echo ' this faild'
+     }
+     success{
+     echo ' this is success'
+     }
+     abort{
+     echo ' this is abort'
+     }
+    }
 }
