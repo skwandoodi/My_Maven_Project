@@ -81,5 +81,10 @@ pipeline{
            sh "terraform -chdir=Terraform apply -auto-approve"
         }
         }
+        stage('s3bucket'){
+        steps{
+           s3Upload consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'lucius2021', excludedFile: '', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: false, noUploadOnFailure: false, selectedRegion: 'us-east-2', showDirectlyInBrowser: false, sourceFile: '**/*/*.jar', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'jenkins_s3', userMetadata: []
+        }
+        }
     }
 }
