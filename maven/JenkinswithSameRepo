@@ -89,13 +89,13 @@ pipeline{
     }
     post{
      failure{
-     emailext body: 'Hi this is testing from jenkins notification', subject: 'This is from Jenkins failure job', to: 'meforasong@gmail.com, skwandoodi@live.com'
+     emailext body: '${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}', subject: 'This is from Jenkins failure job jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}: with build number: ${env.BUILD_NUMBER}', to: 'meforasong@gmail.com, skwandoodi@live.com'
      }
      success{
-     emailext body: 'Hi this is testing from jenkins notification', subject: 'This is from Jenkins success job', to: 'meforasong@gmail.com, skwandoodi@live.com'
+     emailext body: '${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}', subject: 'jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}: with build number: ${env.BUILD_NUMBER}', to: 'meforasong@gmail.com, skwandoodi@live.com'
      }
      aborted{
-     emailext body: 'Hi this is testing from jenkins notification', subject: 'This is from Jenkins aborted job', to: 'skwandoodi@gmail.com'
+     emailext body: '${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}', subject: 'jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}: with build number: ${env.BUILD_NUMBER}', to: 'skwandoodi@gmail.com'
      }
     }
 }
