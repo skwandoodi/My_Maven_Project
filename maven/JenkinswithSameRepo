@@ -95,7 +95,7 @@ pipeline{
      emailext body: 'Hi this is testing from jenkins notification', subject: 'This is from Jenkins success job', to: 'meforasong@gmail.com, skwandoodi@live.com'
      }
      aborted{
-     emailext body: 'Hi this is testing from jenkins notification', subject: 'This is from Jenkins aborted job', to: 'divyagowda8393@gmail.com'
+     emailext body: 'Hi this is testing from jenkins notification', subject: 'This is from Jenkins aborted job', to: 'skwandoodi@gmail.com'
      }
     }
 }
