@@ -66,5 +66,20 @@ pipeline{
 )
         }
         }
+        stage("terraform init"){
+        steps{
+            sh 'terraform -chdir=Terraform init '
+        }
+        }
+        stage("terraform plan"){
+        steps{
+           sh "terraform -chdir=Terraform plan"
+        }
+        }
+         stage("terraform apply"){
+        steps{
+           sh "terraform -chdir=Terraform apply -auto-approve"
+        }
+        }
     }
 }
