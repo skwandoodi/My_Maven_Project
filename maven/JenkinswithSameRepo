@@ -94,7 +94,7 @@ pipeline{
      success{
      echo ' this is success'
      }
-     abort{
+     aborted{
      echo ' this is abort'
      }
     }
